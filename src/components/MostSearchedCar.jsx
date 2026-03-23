@@ -32,7 +32,7 @@ function MostSearchedCar() {
     setCarList(resp);
   }
   return (
-    <div className='mx-24'>
+    <div className='mx-5 md:mx-24'>
       <h2 className='font-bold text-3xl text-center my-16'> Most Searched Car </h2>
 
       <Carousel>

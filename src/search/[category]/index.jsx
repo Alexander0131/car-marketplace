@@ -14,6 +14,7 @@ function SearchByCategory() {
 
     const {category} = useParams();
     const [carList, setCarList] = useState([]);
+    const [loadingState, setLoadingState] = useState(true); 
 
     useEffect(() => {
         GetCarList();
@@ -26,6 +27,7 @@ function SearchByCategory() {
 
         const resp = Service.FormatResult(result);
         setCarList(resp);
+        setLoadingState(false)
     }
 
   return (
@@ -37,20 +39,28 @@ function SearchByCategory() {
       <div className='p-10'>
         <h2 className='font-bold text-4xl p-10 md:px-20'>{category}</h2>
         {/* List of category */}
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-7'>
+          {loadingState ? 
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-7 w-full'>
+             [1,2,3,4,5,6].map((item, index) => (
+                  <div className='h-[370px] rounded-xl bg-slate-200 animate-pulse'>
 
-          {carList?.length > 0 ? carList.map((item, index) => (
-            <div key={index}>
-                <CarItem car={item} />
+                  </div>
+                ))
             </div>
-          ) ): 
-            [1,2,3,4,5,6].map((item, index) => (
-              <div className='h-[370px] rounded-xl bg-slate-200 animate-pulse'>
 
-              </div>
-            ))
+            :
+            <div className='w-full'>
+              {carList?.length > 0 ? carList.map((item, index) => (
+                <div key={index}>
+                    <CarItem car={item} />
+                </div>
+                )): 
+               <div className=' w-full'>There is no car currently available in this category "<b>{category}</b>".</div>
+               
+              }
+            </div>
           }
-        </div>
+          
       </div>
       <MostSearchedCar/>
       <Footer/>

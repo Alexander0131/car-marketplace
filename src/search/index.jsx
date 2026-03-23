@@ -43,7 +43,7 @@ function SearchByOptions() {
   return (
     <div>
       <Header/>
-      <div className='p-16 flex justify-center '>
+      <div className='md:p-16 flex justify-center '>
         <Search/>
       </div>
       {searchValue && 

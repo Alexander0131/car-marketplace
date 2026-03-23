@@ -24,7 +24,7 @@ function HomeSearch() {
   return (
     <div className='w-full flex flex-col items-center justify-center'>
 
-        <div className='p-2 md:p-5 bg-white rounded-md md:rounded-full w-[60%] flex mt-10 gap-5'>
+        <div className='p-1 md:p-5 bg-white rounded-md md:rounded-full w-full md:w-[60%] flex mt-10 gap-5'>
           <Input 
             type="text"
             name="homeSearchBox"

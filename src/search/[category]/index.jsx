@@ -49,7 +49,7 @@ function SearchByCategory() {
             </div>
 
             :
-            <div className='w-full'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-7 w-full md:pl-20'>
               {carList?.length > 0 ? carList.map((item, index) => (
                 <div key={index}>
                     <CarItem car={item} />

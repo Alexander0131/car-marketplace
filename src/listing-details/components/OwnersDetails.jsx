@@ -9,7 +9,7 @@ function OwnersDetails({carDetail}) {
        {carDetail?.userImgUrl ? 
          <img src={carDetail?.userImgUrl ? carDetail?.userImgUrl : '/public/noprofile.jpg'} className='w-17.5 h-17.5 rounded-full'/>
          :
-          <div className='w-17.5 h-17.5 rounded-full text-white bg-primary text-6xl flex items-center justify-center'>{carDetail?.userName[0]}</div>
+          <div className='w-17.5 h-17.5 rounded-full text-white bg-primary text-6xl flex items-center justify-center'>{[carDetail?.userName?.[0]]}</div>
        }
       <h2 className='mt-2 font-bold text-xl'>{carDetail?.userName}</h2>
       <h2 className='mt-2 text-gray-500'>{carDetail?.createdBy}</h2>
